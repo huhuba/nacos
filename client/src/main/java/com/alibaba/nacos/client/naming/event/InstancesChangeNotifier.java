@@ -31,7 +31,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-/**
+/**<ul>(产生实例变更事件时)通知订阅者</ul>
  * A subscriber to notify eventListener callback.
  *
  * @author horizonzy

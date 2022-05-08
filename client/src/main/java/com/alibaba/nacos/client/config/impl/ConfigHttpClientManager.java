@@ -43,6 +43,7 @@ import java.net.URI;
 import static com.alibaba.nacos.client.utils.LogUtils.NAMING_LOGGER;
 
 /**
+ * <ul>配置 http 管理器。</ul>
  * config http Manager.
  *
  * @author mai.jh

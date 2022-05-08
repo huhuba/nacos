@@ -27,7 +27,7 @@ import com.alibaba.nacos.core.utils.Loggers;
 
 import java.util.List;
 
-/**
+/**<ul>定时启动发行版验证任务。(distro:发行版)</ul>
  * Timed to start distro verify task.
  *
  * @author xiweng.yy
@@ -61,7 +61,7 @@ public class DistroVerifyTimedTask implements Runnable {
             Loggers.DISTRO.error("[DISTRO-FAILED] verify task failed.", e);
         }
     }
-    
+
     private void verifyForDataStorage(String type, List<Member> targetServer) {
         DistroDataStorage dataStorage = distroComponentHolder.findDataStorage(type);
         if (!dataStorage.isFinishInitial()) {
@@ -73,11 +73,13 @@ public class DistroVerifyTimedTask implements Runnable {
         if (null == verifyData || verifyData.isEmpty()) {
             return;
         }
+        //遍历所有的服务器节点，发送verify DistroData数据
         for (Member member : targetServer) {
             DistroTransportAgent agent = distroComponentHolder.findTransportAgent(type);
             if (null == agent) {
                 continue;
             }
+            //任务执行器
             executeTaskExecuteEngine.addTask(member.getAddress() + type,
                     new DistroVerifyExecuteTask(agent, verifyData, member.getAddress(), type));
         }

@@ -25,6 +25,7 @@ import javax.net.ssl.SSLSession;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
+ * 验证IPV4和 localhost的主机名称验证器
  * A HostnameVerifier verify ipv4 and localhost.
  *
  * @author wangwei

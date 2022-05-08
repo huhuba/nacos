@@ -19,7 +19,7 @@ package com.alibaba.nacos.api.selector.context;
 
 import com.alibaba.nacos.api.selector.Selector;
 
-/**
+/**<ul>SelectorContextBuilder 主要是为 Selector.select(Object) 提供上下文。它为构建上下文提供了 build(Object, Object) 方法。并且还提供 getContextType() 来获取 contextType。</ul>
  * The {@link SelectorContextBuilder} mainly for provide the context for {@link Selector#select(Object)}.
  * It provides {@link #build(Object, Object)} method for build context. And also provide {@link #getContextType()} for get the contextType.
  *

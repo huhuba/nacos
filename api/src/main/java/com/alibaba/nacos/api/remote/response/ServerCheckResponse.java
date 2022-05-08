@@ -16,7 +16,7 @@
 
 package com.alibaba.nacos.api.remote.response;
 
-/**
+/**<UL>服务器检查的响应</UL>
  * response of server check.
  *
  * @author liuzunfei

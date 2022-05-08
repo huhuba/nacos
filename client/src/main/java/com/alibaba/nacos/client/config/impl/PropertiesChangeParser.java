@@ -25,6 +25,7 @@ import java.util.Map;
 import java.util.Properties;
 
 /**
+ * <ul>属性更改解析器</ul>
  * PropertiesChangeParser.
  *
  * @author rushsky518

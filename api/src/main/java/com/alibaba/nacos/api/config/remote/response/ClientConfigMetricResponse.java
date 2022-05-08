@@ -21,7 +21,7 @@ import com.alibaba.nacos.api.remote.response.Response;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
+/**<ul>客户端配置指标响应</ul>
  * client config metrics response.
  *
  * @author liuzunfei

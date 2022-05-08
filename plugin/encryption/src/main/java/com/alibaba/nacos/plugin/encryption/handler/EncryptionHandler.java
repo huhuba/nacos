@@ -27,6 +27,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
+ * <ul>加密处理程序</ul>
  * EncryptionHandler.
  *
  * @author lixiaoshuang

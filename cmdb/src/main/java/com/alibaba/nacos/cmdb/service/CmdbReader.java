@@ -21,6 +21,7 @@ import com.alibaba.nacos.api.cmdb.pojo.Entity;
 import java.util.List;
 
 /**
+ * <ul>CMDB 阅读器</ul>
  * CMDB Reader.
  *
  * @author nkorange

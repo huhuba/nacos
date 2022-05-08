@@ -19,6 +19,7 @@ package com.alibaba.nacos.client.naming.remote.gprc.redo.data;
 import com.alibaba.nacos.api.naming.pojo.Instance;
 
 /**
+ * <uL>为注册服务实例重做数据</uL>
  * Redo data for register service instance.
  *
  * @author xiweng.yy

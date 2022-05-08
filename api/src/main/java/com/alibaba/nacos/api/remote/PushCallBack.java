@@ -16,7 +16,7 @@
 
 package com.alibaba.nacos.api.remote;
 
-/**
+/**<ul>推送服务回调</ul>
  * callback of push service.
  *
  * @author liuzunfei

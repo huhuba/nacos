@@ -16,7 +16,7 @@
 
 package com.alibaba.nacos.api.remote.request;
 
-/**
+/**<ul>获取服务器节点加载器信息。</ul>
  * get server node loader info.
  * @author liuzunfei
  * @version $Id: ServerLoaderInfoRequest.java, v 0.1 2020年09月03日 2:45 PM liuzunfei Exp $

@@ -293,9 +293,9 @@ public abstract class RpcClient implements Closeable {
                 try {
                     take = eventLinkedBlockingQueue.take();
                     if (take.isConnected()) {
-                        notifyConnected();
+                        notifyConnected();//通知已经链接成功
                     } else if (take.isDisConnected()) {
-                        notifyDisConnected();
+                        notifyDisConnected();//通知已经取消链接
                     }
                 } catch (Throwable e) {
                     // Do nothing
@@ -372,7 +372,7 @@ public abstract class RpcClient implements Closeable {
                 }
             }
         });
-        
+        //连接到服务器，尝试连接到服务器同步 RETRY_TIMES 次，如果失败则开始异步。
         // connect to server, try to connect to server sync RETRY_TIMES times, async starting if failed.
         Connection connectToServer = null;
         rpcClientStatus.set(RpcClientStatus.STARTING);
@@ -385,7 +385,7 @@ public abstract class RpcClient implements Closeable {
                 
                 LoggerUtils.printIfInfoEnabled(LOGGER, "[{}] Try to connect to server on start up, server: {}", name,
                         serverInfo);
-                
+                //connectToServer:开始链接到服务器
                 connectToServer = connectToServer(serverInfo);
             } catch (Throwable e) {
                 LoggerUtils.printIfWarnEnabled(LOGGER,
@@ -803,7 +803,7 @@ public abstract class RpcClient implements Closeable {
         
     }
     
-    /**
+    /**<ul>链接到服务器</ul>
      * connect to server.
      *
      * @param serverInfo server address to connect.
@@ -841,7 +841,7 @@ public abstract class RpcClient implements Closeable {
         return null;
     }
     
-    /**
+    /**<ul>注册连接处理程序,当内部的链接状态变更时，会收到通知</ul>
      * Register connection handler. Will be notified when inner connection's state changed.
      *
      * @param connectionEventListener connectionEventListener

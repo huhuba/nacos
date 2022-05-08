@@ -23,6 +23,7 @@ import java.util.Map;
 import java.util.concurrent.Callable;
 
 /**
+ * <uL>lru 缓存的包装器</uL>
  * A wrapper that lru cache.
  * @author zzq
  * @date 2021/7/30

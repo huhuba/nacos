@@ -52,6 +52,7 @@ import static com.alibaba.nacos.common.constant.RequestUrlConstants.HTTPS_PREFIX
 import static com.alibaba.nacos.common.constant.RequestUrlConstants.HTTP_PREFIX;
 
 /**
+ * <ul>服务器列表管理器。</ul>
  * Serverlist Manager.
  *
  * @author Nacos

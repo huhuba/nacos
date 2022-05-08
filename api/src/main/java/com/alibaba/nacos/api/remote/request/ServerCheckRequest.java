@@ -16,7 +16,7 @@
 
 package com.alibaba.nacos.api.remote.request;
 
-/**
+/**<ul>检查服务是否畅通的请求</ul>
  * request to check server if unimpeded.
  *
  * @author liuzunfei

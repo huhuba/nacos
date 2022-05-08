@@ -23,6 +23,7 @@ import com.alibaba.nacos.common.utils.StringUtils;
 import java.util.List;
 
 /**
+ * <ul>参数检查工具</ul>
  * Param check util.
  *
  * @author Nacos

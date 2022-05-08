@@ -34,7 +34,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
-/**
+/**<ul>命名客户端 gprc 重做服务。当连接重新连接到服务器时，重新注册和订阅</ul>
  * Naming client gprc redo service.
  *
  * <p>When connection reconnect to server, redo the register and subscribe.

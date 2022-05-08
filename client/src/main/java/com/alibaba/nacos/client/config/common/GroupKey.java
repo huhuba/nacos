@@ -19,6 +19,7 @@ package com.alibaba.nacos.client.config.common;
 import com.alibaba.nacos.common.utils.StringUtils;
 
 /**
+ * <ul>合成dataId+groupId的形式。转义 dataId 和 groupId 中的保留字符</ul>
  * Synthesize the form of dataId+groupId. Escapes reserved characters in dataId and groupId.
  *
  * @author Nacos

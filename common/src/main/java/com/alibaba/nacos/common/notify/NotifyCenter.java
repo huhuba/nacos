@@ -37,6 +37,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import static com.alibaba.nacos.api.exception.NacosException.SERVER_ERROR;
 
 /**
+ * <uL>统一事件通知中心。</uL>
  * Unified Event Notify Center.
  *
  * @author <a href="mailto:liaochuntao@live.com">liaochuntao</a>
@@ -294,7 +295,7 @@ public class NotifyCenter {
         if (ClassUtils.isAssignableFrom(SlowEvent.class, eventType)) {
             return INSTANCE.sharePublisher.publish(event);
         }
-        
+        //Canonical:规范
         final String topic = ClassUtils.getCanonicalName(eventType);
         
         EventPublisher publisher = INSTANCE.publisherMap.get(topic);

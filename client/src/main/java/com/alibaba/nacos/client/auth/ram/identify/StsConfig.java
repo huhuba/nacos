@@ -19,6 +19,7 @@ package com.alibaba.nacos.client.auth.ram.identify;
 import com.alibaba.nacos.common.utils.StringUtils;
 
 /**
+ * <ul>sts配置。</ul>
  * Sts config.
  *
  * @author Nacos

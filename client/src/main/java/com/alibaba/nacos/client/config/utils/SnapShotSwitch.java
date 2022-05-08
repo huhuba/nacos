@@ -19,6 +19,7 @@ package com.alibaba.nacos.client.config.utils;
 import com.alibaba.nacos.client.config.impl.LocalConfigInfoProcessor;
 
 /**
+ * <ul>快照开关。</ul>
  * Snapshot switch.
  *
  * @author Nacos

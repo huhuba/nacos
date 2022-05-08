@@ -30,6 +30,7 @@ import static com.alibaba.nacos.config.server.utils.LogUtil.DEFAULT_LOG;
 import static com.alibaba.nacos.config.server.utils.LogUtil.FATAL_LOG;
 
 /**
+ * <ul>聚合白名单</ul>
  * AggrWhitelist.
  *
  * @author Nacos

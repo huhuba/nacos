@@ -16,7 +16,7 @@
 
 package com.alibaba.nacos.client.auth.ram.identify;
 
-/**
+/**<ul>Identify：确认，识别， Contants:常量</ul>
  * Identify Constants.
  *
  * @author Nacos

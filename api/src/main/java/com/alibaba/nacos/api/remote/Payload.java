@@ -16,7 +16,7 @@
 
 package com.alibaba.nacos.api.remote;
 
-/**
+/** <UL>有效载荷类标志</UL>
  * payload class sign.
  *
  * @author hujun

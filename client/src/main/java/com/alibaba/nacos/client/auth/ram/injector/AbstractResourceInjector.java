@@ -21,6 +21,7 @@ import com.alibaba.nacos.client.auth.ram.RamContext;
 import com.alibaba.nacos.plugin.auth.api.RequestResource;
 
 /**
+ * <ul>抽象的 aliyun RAM 资源注入器。</ul>
  * Abstract aliyun RAM resource injector.
  *
  * @author xiweng.yy

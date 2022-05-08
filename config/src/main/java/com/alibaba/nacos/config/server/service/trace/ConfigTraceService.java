@@ -27,6 +27,7 @@ import org.springframework.stereotype.Service;
 import java.util.concurrent.TimeUnit;
 
 /**
+ * <ul>配置跟踪</ul>
  * Config trace.
  *
  * @author Nacos

@@ -32,6 +32,7 @@ import java.nio.charset.Charset;
 import java.nio.charset.CharsetDecoder;
 
 /**
+ * <ul>并发磁盘实用程序；具有文件锁的操作文件。</ul>
  * concurrent disk util;op file with file lock.
  *
  * @author configCenter

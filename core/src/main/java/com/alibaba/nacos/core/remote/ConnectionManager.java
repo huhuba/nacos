@@ -282,7 +282,7 @@ public class ConnectionManager extends Subscriber<ConnectionLimitRuleChangeEvent
         }
     }
     
-    /**
+    /**<ul>启动任务：清除活动时间到期的连接。</ul>
      * Start Task：Expel the connection which active Time expire.
      */
     @PostConstruct
@@ -312,7 +312,7 @@ public class ConnectionManager extends Subscriber<ConnectionLimitRuleChangeEvent
                     
                     Map<String, AtomicInteger> expelForIp = new HashMap<>(16);
                     
-                    //1. calculate expel count  of ip.
+                    //1. calculate expel count  of ip.计算超时IP的数量
                     for (Map.Entry<String, Connection> entry : entries) {
                         
                         Connection client = entry.getValue();
@@ -404,7 +404,7 @@ public class ConnectionManager extends Subscriber<ConnectionLimitRuleChangeEvent
                         }
                     }
                     
-                    //4.client active detection.
+                    //4.client active detection.客户端主动探测
                     Loggers.REMOTE_DIGEST.info("Out dated connection ,size={}", outDatedConnections.size());
                     if (CollectionUtils.isNotEmpty(outDatedConnections)) {
                         Set<String> successConnections = new HashSet<>();

@@ -16,7 +16,7 @@
 
 package com.alibaba.nacos.api.remote.response;
 
-/**
+/**<UL>服务器重新加载响应。</UL>
  * server reload response.
  *
  * @author liuzunfei

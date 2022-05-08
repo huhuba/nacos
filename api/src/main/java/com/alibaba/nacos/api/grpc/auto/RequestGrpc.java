@@ -202,7 +202,7 @@ public final class RequestGrpc {
       return new RequestFutureStub(channel, callOptions);
     }
 
-    /**
+    /**<ul>发送一个普通请求</ul>
      * <pre>
      * Sends a commonRequest
      * </pre>

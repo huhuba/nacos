@@ -21,6 +21,7 @@ import com.alibaba.nacos.common.notify.Event;
 import java.util.List;
 
 /**
+ * <uL>可以监听多个事件的订阅者。</uL>
  * Subscribers to multiple events can be listened to.
  *
  * @author <a href="mailto:liaochuntao@live.com">liaochuntao</a>

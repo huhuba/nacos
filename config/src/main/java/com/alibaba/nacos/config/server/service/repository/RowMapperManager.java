@@ -41,6 +41,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
+ * <ul>Manager RowMapper RowMapper 用于数据库对象映射</ul>
  * Manager RowMapper {@link RowMapper} for database object mapping.
  *
  * @author <a href="mailto:liaochuntao@live.com">liaochuntao</a>

@@ -26,6 +26,7 @@ import java.io.StringReader;
 import java.util.Properties;
 
 /**
+ * <ul>属性监听器。</ul>
  * Properties Listener.
  *
  * @author Nacos

@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-/**
+/**<ul>为 Collection 实例提供实用方法和装饰器。</ul>
  * Provides utility methods and decorators for {@link Collection} instances.
  *
  * @author Rodney Waldhoff
@@ -41,7 +41,7 @@ import java.util.Map;
  * @version $Revision: 1713167 $ $Date: 2015-11-07 20:44:03 +0100 (Sat, 07 Nov 2015) $
  * @since Commons Collections 1.0
  */
-public class CollectionUtils {
+public class  CollectionUtils {
     
     /**
      * Constant to avoid repeated object creation.

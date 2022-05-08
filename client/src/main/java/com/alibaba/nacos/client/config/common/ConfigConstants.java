@@ -17,6 +17,7 @@
 package com.alibaba.nacos.client.config.common;
 
 /**
+ * 配置常用常量。
  * config common constants.
  *
  * @author Nacos

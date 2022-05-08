@@ -26,6 +26,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * <ul>抽象命名客户端代理。</ul>
  * Abstract Naming client proxy.
  *
  * @author xiweng.yy

@@ -43,6 +43,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.TimeUnit;
 
 /**
+ * <ul>CMDB 提供程序。</ul>
  * CMDB provider.
  *
  * @author nkorange

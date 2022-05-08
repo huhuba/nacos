@@ -92,7 +92,12 @@ public class ConnectionBasedClientManager extends ClientConnectionEventListener 
     public void clientDisConnected(Connection connect) {
         clientDisconnected(connect.getMetaInfo().getConnectionId());
     }
-    
+
+    /**
+     * 断开指定客户端链接
+     * @param clientId client id
+     * @return
+     */
     @Override
     public boolean clientDisconnected(String clientId) {
         Loggers.SRV_LOG.info("Client connection {} disconnect, remove instances and subscribers", clientId);
@@ -134,7 +139,10 @@ public class ConnectionBasedClientManager extends ClientConnectionEventListener 
         }
         return false;
     }
-    
+
+    /**
+     * 过期Client清理器，用来清理过期的Client
+     */
     private static class ExpiredClientCleaner implements Runnable {
         
         private final ConnectionBasedClientManager clientManager;

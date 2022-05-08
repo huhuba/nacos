@@ -19,7 +19,7 @@ package com.alibaba.nacos.api.remote.ability;
 import java.io.Serializable;
 import java.util.Objects;
 
-/**
+/**<ul>nacos 服务器的远程能力</ul>
  * remote abilities of nacos server.
  *
  * @author liuzunfei

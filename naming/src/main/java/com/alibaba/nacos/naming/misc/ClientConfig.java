@@ -20,7 +20,7 @@ import com.alibaba.nacos.core.config.AbstractDynamicConfig;
 import com.alibaba.nacos.naming.constants.ClientConstants;
 import com.alibaba.nacos.sys.env.EnvUtil;
 
-/**
+/**<ul>命名客户端配置</ul>
  * Naming client config.
  *
  * @author xiweng.yy
@@ -30,7 +30,9 @@ public class ClientConfig extends AbstractDynamicConfig {
     private static final String NAMING_CLIENT = "NamingClient";
     
     private static final ClientConfig INSTANCE = new ClientConfig();
-    
+    /**
+     * Client过期时间
+     */
     private long clientExpiredTime = ClientConstants.DEFAULT_CLIENT_EXPIRED_TIME;
     
     private ClientConfig() {

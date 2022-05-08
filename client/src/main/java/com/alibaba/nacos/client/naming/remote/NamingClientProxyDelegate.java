@@ -42,7 +42,7 @@ import java.util.concurrent.TimeUnit;
 import static com.alibaba.nacos.client.constant.Constants.Security.SECURITY_INFO_REFRESH_INTERVAL_MILLS;
 import static com.alibaba.nacos.client.utils.LogUtils.NAMING_LOGGER;
 
-/**
+/**<ul>命名客户端代理的委托</ul>
  * Delegate of naming client proxy.
  *
  * @author xiweng.yy
@@ -141,9 +141,12 @@ public class NamingClientProxyDelegate implements NamingClientProxy {
         NAMING_LOGGER.info("[SUBSCRIBE-SERVICE] service:{}, group:{}, clusters:{} ", serviceName, groupName, clusters);
         String serviceNameWithGroup = NamingUtils.getGroupedName(serviceName, groupName);
         String serviceKey = ServiceInfo.getKey(serviceNameWithGroup, clusters);
+        //定时任务：schedule,
         serviceInfoUpdateService.scheduleUpdateIfAbsent(serviceName, groupName, clusters);
+        //获取缓存中的service info
         ServiceInfo result = serviceInfoHolder.getServiceInfoMap().get(serviceKey);
         if (null == result || !isSubscribed(serviceName, groupName, clusters)) {
+            //如果本地缓存中没有服务信息，说明之前没有拉取过，没有订阅过，所有要先订阅服务器的广播
             result = grpcClientProxy.subscribe(serviceName, groupName, clusters);
         }
         serviceInfoHolder.processServiceInfo(result);

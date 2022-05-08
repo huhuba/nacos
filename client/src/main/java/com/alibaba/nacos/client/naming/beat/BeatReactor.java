@@ -43,6 +43,7 @@ import java.util.concurrent.TimeUnit;
 import static com.alibaba.nacos.client.utils.LogUtils.NAMING_LOGGER;
 
 /**
+ * <ul>击败反应堆</ul>
  * Beat reactor.
  *
  * @author harold

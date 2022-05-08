@@ -20,6 +20,7 @@ import com.alibaba.nacos.client.utils.LogUtils;
 import org.slf4j.Logger;
 
 /**
+ * <ul>获取 jvm 配置。</ul>
  * Get jvm config.
  *
  * @author Nacos

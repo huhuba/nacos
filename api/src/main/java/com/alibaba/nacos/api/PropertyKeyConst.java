@@ -16,7 +16,7 @@
 
 package com.alibaba.nacos.api;
 
-/**
+/**<ul>属性键常量。</ul>
  * Property Key Const.
  *
  * @author Nacos

@@ -28,6 +28,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * <ul>配置更改处理程序</ul>
  * ConfigChangeHandler.
  *
  * @author rushsky518

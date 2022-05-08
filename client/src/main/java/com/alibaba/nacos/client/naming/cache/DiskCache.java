@@ -36,6 +36,7 @@ import java.util.Map;
 import static com.alibaba.nacos.client.utils.LogUtils.NAMING_LOGGER;
 
 /**
+ * <ul>磁盘缓存</ul>
  * Disk cache.
  *
  * @author xuanyin

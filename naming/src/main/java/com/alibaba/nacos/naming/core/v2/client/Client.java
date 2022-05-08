@@ -83,7 +83,7 @@ public interface Client {
      */
     InstancePublishInfo getInstancePublishInfo(Service service);
     
-    /**
+    /**<ul>获取当前客户端所有的发布服务</ul>
      * Get all published service of current client.
      *
      * @return published services

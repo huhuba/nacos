@@ -26,6 +26,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 /**
+ * <ul>Cmdb 执行器。</ul>
  * Cmdb executor.
  *
  * @author wangweizZZ

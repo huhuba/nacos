@@ -24,6 +24,7 @@ import com.alibaba.nacos.client.naming.cache.ServiceInfoHolder;
 import com.alibaba.nacos.common.remote.client.ServerRequestHandler;
 
 /**
+ * <ul>命名推送请求处理程序。</ul>
  * Naming push request handler.
  *
  * @author xiweng.yy

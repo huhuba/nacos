@@ -17,6 +17,7 @@
 package com.alibaba.nacos.api.remote.response;
 
 /**
+ * <ul>连接复位响应。</ul>
  * connection reset response.
  *
  * @author liuzunfei

@@ -19,6 +19,7 @@ package com.alibaba.nacos.client.auth.ram;
 import com.alibaba.nacos.common.utils.StringUtils;
 
 /**
+ * <ul>阿里云 RAM 上下文</ul>
  * Aliyun RAM context.
  *
  * @author xiweng.yy

@@ -25,7 +25,7 @@ import java.util.List;
 
 import static com.alibaba.nacos.api.common.Constants.Naming.CMDB_CONTEXT_TYPE;
 
-/**
+/**<ul>AbstractCmdbSelector 将提供一个默认的 Selector 实现，用户可以实现它以使用 CmdbContext。并将结果作为 Instance 的默认子类返回。</ul>
  * {@link AbstractCmdbSelector} will provide one default implement of {@link Selector}, users can implement it to use the {@link CmdbContext}.
  * And return the result as default subclass of {@link Instance}.
  *

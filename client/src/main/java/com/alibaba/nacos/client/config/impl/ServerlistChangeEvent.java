@@ -19,6 +19,7 @@ package com.alibaba.nacos.client.config.impl;
 import com.alibaba.nacos.common.notify.SlowEvent;
 
 /**
+ * <ul>服务器列表更改事件。</ul>
  * Server List Change Event.
  *
  * @author zongtanghu

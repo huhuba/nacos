@@ -32,6 +32,7 @@ import java.nio.charset.CharsetDecoder;
 import static com.alibaba.nacos.client.utils.LogUtils.NAMING_LOGGER;
 
 /**
+ * <ul>并发磁盘工具。</ul>
  * Concurrent Disk util.
  *
  * @author nkorange

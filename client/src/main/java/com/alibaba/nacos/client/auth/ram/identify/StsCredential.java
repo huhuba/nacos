@@ -21,6 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Date;
 
 /**
+ * <ul>阿里云内存的sts凭证。</ul>
  * Sts credential for aliyun RAM.
  *
  * @author xiweng.yy

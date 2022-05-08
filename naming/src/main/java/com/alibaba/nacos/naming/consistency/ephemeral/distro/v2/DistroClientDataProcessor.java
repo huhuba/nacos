@@ -54,9 +54,13 @@ import java.util.Set;
 public class DistroClientDataProcessor extends SmartSubscriber implements DistroDataStorage, DistroDataProcessor {
     
     public static final String TYPE = "Nacos:Naming:v2:ClientData";
-    
+    /**
+     * 客户端管理器
+     */
     private final ClientManager clientManager;
-    
+    /**
+     * DistroProtocol:阿里自己的一个协议
+     */
     private final DistroProtocol distroProtocol;
     
     private final UpgradeJudgement upgradeJudgement;
@@ -82,11 +86,11 @@ public class DistroClientDataProcessor extends SmartSubscriber implements Distro
     }
     
     @Override
-    public List<Class<? extends Event>> subscribeTypes() {
+    public List<Class<? extends Event>> subscribeTypes() {//subscribe:订阅
         List<Class<? extends Event>> result = new LinkedList<>();
-        result.add(ClientEvent.ClientChangedEvent.class);
-        result.add(ClientEvent.ClientDisconnectEvent.class);
-        result.add(ClientEvent.ClientVerifyFailedEvent.class);
+        result.add(ClientEvent.ClientChangedEvent.class);//客户端变更事件
+        result.add(ClientEvent.ClientDisconnectEvent.class);//客户端断开链接事件
+        result.add(ClientEvent.ClientVerifyFailedEvent.class);//客户端校验失败事件
         return result;
     }
     
@@ -104,7 +108,11 @@ public class DistroClientDataProcessor extends SmartSubscriber implements Distro
             syncToAllServer((ClientEvent) event);
         }
     }
-    
+
+    /**
+     * 将校验失败事件同步给所有的服务器
+     * @param event
+     */
     private void syncToVerifyFailedServer(ClientEvent.ClientVerifyFailedEvent event) {
         Client client = clientManager.getClient(event.getClientId());
         if (null == client || !client.isEphemeral() || !clientManager.isResponsibleClient(client)) {
@@ -114,17 +122,22 @@ public class DistroClientDataProcessor extends SmartSubscriber implements Distro
         // Verify failed data should be sync directly.
         distroProtocol.syncToTarget(distroKey, DataOperation.ADD, event.getTargetServer(), 0L);
     }
-    
+
+    /**
+     * 将事件 event（断开链接事件或者变更事件：新增或者删除）同步到所有的服务器
+     * @param event
+     */
     private void syncToAllServer(ClientEvent event) {
         Client client = event.getClient();
         // Only ephemeral data sync by Distro, persist client should sync by raft.
+        // 判断客户端是否为空，是否是临时实例，判断是否是负责节点，Q:负责节点是什么？
         if (null == client || !client.isEphemeral() || !clientManager.isResponsibleClient(client)) {
             return;
         }
-        if (event instanceof ClientEvent.ClientDisconnectEvent) {
+        if (event instanceof ClientEvent.ClientDisconnectEvent) {//客户端断开链接事件
             DistroKey distroKey = new DistroKey(client.getClientId(), TYPE);
             distroProtocol.sync(distroKey, DataOperation.DELETE);
-        } else if (event instanceof ClientEvent.ClientChangedEvent) {
+        } else if (event instanceof ClientEvent.ClientChangedEvent) {//客户端变更事件：新增或者删除
             DistroKey distroKey = new DistroKey(client.getClientId(), TYPE);
             distroProtocol.sync(distroKey, DataOperation.CHANGE);
         }
@@ -138,13 +151,14 @@ public class DistroClientDataProcessor extends SmartSubscriber implements Distro
     @Override
     public boolean processData(DistroData distroData) {
         switch (distroData.getType()) {
-            case ADD:
-            case CHANGE:
+            case ADD://新增
+            case CHANGE://变更
                 ClientSyncData clientSyncData = ApplicationUtils.getBean(Serializer.class)
                         .deserialize(distroData.getContent(), ClientSyncData.class);
+                //处理同步数据
                 handlerClientSyncData(clientSyncData);
                 return true;
-            case DELETE:
+            case DELETE://删除
                 String deleteClientId = distroData.getDistroKey().getResourceKey();
                 Loggers.DISTRO.info("[Client-Delete] Received distro client sync data {}", deleteClientId);
                 clientManager.clientDisconnected(deleteClientId);
@@ -156,9 +170,12 @@ public class DistroClientDataProcessor extends SmartSubscriber implements Distro
     
     private void handlerClientSyncData(ClientSyncData clientSyncData) {
         Loggers.DISTRO.info("[Client-Add] Received distro client sync data {}", clientSyncData.getClientId());
+        //同步客户端链接
         clientManager.syncClientConnected(clientSyncData.getClientId(), clientSyncData.getAttributes());
+        //获取  client
         Client client = clientManager.getClient(clientSyncData.getClientId());
-        upgradeClient(client, clientSyncData);
+        //升级client,更新客户端信息
+        upgradeClient(client, clientSyncData);//upgrade：升级,
     }
     
     private void upgradeClient(Client client, ClientSyncData clientSyncData) {
@@ -214,8 +231,9 @@ public class DistroClientDataProcessor extends SmartSubscriber implements Distro
         if (null == client) {
             return null;
         }
+        //把生成的同步数据放入数组中
         byte[] data = ApplicationUtils.getBean(Serializer.class).serialize(client.generateSyncData());
-        return new DistroData(distroKey, data);
+        return new DistroData(distroKey, data);//返回新的  DistroData对象
     }
     
     @Override

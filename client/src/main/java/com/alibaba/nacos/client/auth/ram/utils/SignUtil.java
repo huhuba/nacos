@@ -24,6 +24,7 @@ import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 
 /**
+ * <ul>注册工具</ul>
  * Sign util.
  *
  * @author pbting

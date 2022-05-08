@@ -24,6 +24,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
+ * <ul>所有参数验证工具</ul>
  * All parameter validation tools.
  *
  * @author <a href="mailto:liaochuntao@live.com">liaochuntao</a>

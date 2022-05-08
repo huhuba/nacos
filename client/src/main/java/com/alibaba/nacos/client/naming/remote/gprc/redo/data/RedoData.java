@@ -19,6 +19,7 @@ package com.alibaba.nacos.client.naming.remote.gprc.redo.data;
 import java.util.Objects;
 
 /**
+ * <uL>Nacos 命名重做数据。</uL>
  * Nacos naming redo data.
  *
  * @author xiweng.yy

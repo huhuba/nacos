@@ -24,6 +24,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * <ul>抽象配置更改解析器</ul>
  * AbstractConfigChangeParser.
  *
  * @author rushsky518

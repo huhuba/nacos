@@ -19,7 +19,7 @@ package com.alibaba.nacos.api.remote.request;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
+/**<ul>元信息请求。</ul>
  * RequestMeta info.
  *
  * @author liuzunfei

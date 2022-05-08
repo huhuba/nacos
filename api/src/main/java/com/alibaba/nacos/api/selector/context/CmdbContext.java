@@ -23,7 +23,7 @@ import com.alibaba.nacos.api.selector.Selector;
 
 import java.util.List;
 
-/**
+/**<ul>CMDB 上下文由 SelectorContextBuilder.build(Object, Object) 给出并用于 Selector.select(Object)。</ul>
  * The CMDB context is given by the {@link SelectorContextBuilder#build(Object, Object)} and used for the
  * {@link Selector#select(Object)}.
  *

@@ -32,7 +32,7 @@ import java.util.List;
  */
 public interface NamingService {
     
-    /**
+    /**<ul>注册一个实例到服务</ul>
      * register a instance to service.
      *
      * @param serviceName name of service
@@ -53,7 +53,7 @@ public interface NamingService {
      */
     void registerInstance(String serviceName, String groupName, String ip, int port) throws NacosException;
     
-    /**
+    /**<ul>注册实例到服务的指定集群</ul>
      * register a instance to service with specified cluster name.
      *
      * @param serviceName name of service
@@ -96,7 +96,7 @@ public interface NamingService {
      */
     void registerInstance(String serviceName, String groupName, Instance instance) throws NacosException;
     
-    /**
+    /**<ul>从服务注销一个实例</ul>
      * deregister instance from a service.
      *
      * @param serviceName name of service
@@ -106,7 +106,7 @@ public interface NamingService {
      */
     void deregisterInstance(String serviceName, String ip, int port) throws NacosException;
     
-    /**
+    /**<ul>从服务注销一个实例</ul>
      * deregister instance from a service.
      *
      * @param serviceName name of service
@@ -117,7 +117,7 @@ public interface NamingService {
      */
     void deregisterInstance(String serviceName, String groupName, String ip, int port) throws NacosException;
     
-    /**
+    /**<ul>从指定服务的集群中，注销一个实例</ul>
      * deregister instance with specified cluster name from a service.
      *
      * @param serviceName name of service
@@ -160,7 +160,7 @@ public interface NamingService {
      */
     void deregisterInstance(String serviceName, String groupName, Instance instance) throws NacosException;
     
-    /**
+    /**<ul>返回服务中所有的实例</ul>
      * get all instances of a service.
      *
      * @param serviceName name of service
@@ -341,7 +341,7 @@ public interface NamingService {
     List<Instance> selectInstances(String serviceName, String groupName, List<String> clusters, boolean healthy,
             boolean subscribe) throws NacosException;
     
-    /**
+    /**<ul>使用预定义的负载平衡策略选择一个健康的服务实例</ul>
      * Select one healthy instance of service using predefined load balance strategy.
      *
      * @param serviceName name of service
@@ -428,7 +428,7 @@ public interface NamingService {
     Instance selectOneHealthyInstance(String serviceName, String groupName, List<String> clusters, boolean subscribe)
             throws NacosException;
     
-    /**
+    /**<ul>订阅服务以接收实例更改事件</ul>
      * Subscribe service to receive events of instances alteration.
      *
      * @param serviceName name of service
@@ -469,7 +469,7 @@ public interface NamingService {
     void subscribe(String serviceName, String groupName, List<String> clusters, EventListener listener)
             throws NacosException;
     
-    /**
+    /**<ul>取消订阅服务的事件监听器</ul>
      * Unsubscribe event listener of service.
      *
      * @param serviceName name of service
@@ -510,7 +510,7 @@ public interface NamingService {
     void unsubscribe(String serviceName, String groupName, List<String> clusters, EventListener listener)
             throws NacosException;
     
-    /**
+    /**<ul>从服务器获取所有服务名称</ul>
      * Get all service names from server.
      *
      * @param pageNo   page index
@@ -556,7 +556,7 @@ public interface NamingService {
     ListView<String> getServicesOfServer(int pageNo, int pageSize, String groupName, AbstractSelector selector)
             throws NacosException;
     
-    /**
+    /**<ul>获取当前客户端的所有订阅服务。</ul>
      * Get all subscribed services of current client.
      *
      * @return subscribed services
@@ -564,14 +564,14 @@ public interface NamingService {
      */
     List<ServiceInfo> getSubscribeServices() throws NacosException;
     
-    /**
+    /**<ul>获取服务器健康状态</ul>
      * get server health status.
      *
      * @return is server healthy
      */
     String getServerStatus();
     
-    /**
+    /**<ul>关闭资源服务。</ul>
      * Shutdown the resource service.
      *
      * @throws NacosException exception.

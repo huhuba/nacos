@@ -19,7 +19,7 @@ package com.alibaba.nacos.client.utils;
 import com.alibaba.nacos.api.SystemPropertyKeyConst;
 import com.alibaba.nacos.common.utils.StringUtils;
 
-/**
+/**<ul>租户工具</ul>
  * Tenant Util.
  *
  * @author Nacos

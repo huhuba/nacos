@@ -20,6 +20,7 @@ import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.ThreadFactory;
 
 /**
+ * <ul>RPC  调度程序执行器</ul>
  * rpc scheduler executor .
  *
  * @author liuzunfei

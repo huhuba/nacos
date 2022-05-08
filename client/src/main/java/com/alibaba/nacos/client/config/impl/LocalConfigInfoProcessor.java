@@ -31,6 +31,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
+ * <ul>本地灾难/故障 恢复目录工具。</ul>
  * Local Disaster Recovery Directory Tool.
  *
  * @author Nacos

@@ -17,6 +17,7 @@
 package com.alibaba.nacos.client.auth.ram.identify;
 
 /**
+ * <ul>Spas 凭证接口</ul>
  * Spas Credential Interface.
  *
  * @author Nacos

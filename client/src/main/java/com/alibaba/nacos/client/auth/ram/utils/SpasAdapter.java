@@ -27,7 +27,7 @@ import javax.crypto.spec.SecretKeySpec;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
+/**适配  spas接口
  * adapt spas interface.
  *
  * @author Nacos

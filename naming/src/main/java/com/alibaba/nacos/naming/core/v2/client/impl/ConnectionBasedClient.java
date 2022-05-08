@@ -30,13 +30,13 @@ public class ConnectionBasedClient extends AbstractClient {
     
     private final String connectionId;
     
-    /**
+    /**<ul>true 表示此客户端直接连接到当前服务器。 false 表示此客户端与其他服务器同步。</ul>
      * {@code true} means this client is directly connect to current server. {@code false} means this client is synced
      * from other server.
      */
     private final boolean isNative;
     
-    /**
+    /**<ul>仅当 isNative 为 false 时才有意义，即最后一次从源服务器验证。</ul>
      * Only has meaning when {@code isNative} is false, which means that the last time verify from source server.
      */
     private volatile long lastRenewTime;
@@ -69,7 +69,12 @@ public class ConnectionBasedClient extends AbstractClient {
     public void setLastRenewTime() {
         this.lastRenewTime = System.currentTimeMillis();
     }
-    
+
+    /**
+     * 判断非责任节点是否过期
+     * @param currentTime unified current timestamp
+     * @return
+     */
     @Override
     public boolean isExpire(long currentTime) {
         return !isNative() && currentTime - getLastRenewTime() > ClientConfig.getInstance().getClientExpiredTime();

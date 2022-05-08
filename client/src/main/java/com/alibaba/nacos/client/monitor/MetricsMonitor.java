@@ -20,6 +20,7 @@ import io.prometheus.client.Gauge;
 import io.prometheus.client.Histogram;
 
 /**
+ * <ul>指标监视器。</ul>
  * Metrics Monitor.
  *
  * @author Nacos

@@ -20,7 +20,7 @@ import com.alibaba.nacos.api.remote.request.Request;
 
 import static com.alibaba.nacos.api.common.Constants.Naming.NAMING_MODULE;
 
-/**
+/**<ul>命名模块统一远程请求</ul>
  * Uniform remote request of naming module.
  *
  * @author liuzunfei

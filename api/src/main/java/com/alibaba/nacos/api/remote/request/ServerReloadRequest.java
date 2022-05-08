@@ -16,7 +16,7 @@
 
 package com.alibaba.nacos.api.remote.request;
 
-/**
+/**<ul>重新加载长连接请求</ul>
  * reload long connection request.
  *
  * @author liuzunfei

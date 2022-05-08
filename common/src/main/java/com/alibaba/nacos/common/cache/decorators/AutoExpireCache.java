@@ -23,6 +23,7 @@ import java.util.HashMap;
 import java.util.concurrent.Callable;
 
 /**
+ * <ul>自动使缓存过期的包装器。</ul>
  * A wrapper that automatically expires the cache.
  * @author zzq
  * @date 2021/7/30

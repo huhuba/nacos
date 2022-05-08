@@ -18,7 +18,7 @@ package com.alibaba.nacos.api.remote.request;
 
 import static com.alibaba.nacos.api.common.Constants.Remote.INTERNAL_MODULE;
 
-/**
+/**<ul>链接重置请求</ul>
  * ConnectResetRequest.
  *
  * @author liuzunfei

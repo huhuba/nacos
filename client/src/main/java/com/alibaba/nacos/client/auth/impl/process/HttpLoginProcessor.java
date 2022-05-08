@@ -38,7 +38,7 @@ import java.util.Properties;
 import static com.alibaba.nacos.client.naming.utils.UtilAndComs.webContext;
 import static com.alibaba.nacos.common.constant.RequestUrlConstants.HTTP_PREFIX;
 
-/**
+/**<ul>Http 的登录处理器</ul>
  * Login processor for Http.
  *
  * @author Nacos

@@ -28,6 +28,7 @@ import java.util.Properties;
 import java.util.ServiceLoader;
 
 /**
+ * <ul>管理配置过滤器链。</ul>
  * Config Filter Chain Management.
  *
  * @author Nacos

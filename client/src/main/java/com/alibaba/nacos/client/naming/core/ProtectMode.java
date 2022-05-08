@@ -17,6 +17,7 @@
 package com.alibaba.nacos.client.naming.core;
 
 /**
+ * <ul>保护模式</ul>
  * Protect mode.
  *
  * @author nkorange

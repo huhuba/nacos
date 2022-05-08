@@ -17,6 +17,7 @@
 package com.alibaba.nacos.api.utils;
 
 /**
+ * <ul>字符串实用程序。从 apache common-lang3 复制。</ul>
  * StringUtils. copy from apache common-lang3.
  *
  * @author <a href="mailto:lin-mt@outlook.com">lin-mt</a>

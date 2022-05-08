@@ -20,6 +20,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 /**
+ * <ul>开关和选项</ul>
  * Switch and options.
  *
  * @author nkorange

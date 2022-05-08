@@ -24,6 +24,7 @@ import io.prometheus.client.Histogram;
 import java.util.Map;
 
 /**
+ * <ul>指标 Http 代理</ul>
  * MetricsHttpAgent.
  *
  * @author Nacos

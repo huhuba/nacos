@@ -16,7 +16,7 @@
 
 package com.alibaba.nacos.api.remote;
 
-/**
+/**<UL>抽象请求回调。</UL>
  * abstract request call back.
  *
  * @author liuzunfei

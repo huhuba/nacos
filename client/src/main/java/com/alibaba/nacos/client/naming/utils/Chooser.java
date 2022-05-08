@@ -21,7 +21,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
-/**
+/**<ul>选择器。</ul>
  * Chooser.
  *
  * @author alibaba

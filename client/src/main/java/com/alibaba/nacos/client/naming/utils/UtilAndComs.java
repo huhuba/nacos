@@ -20,6 +20,7 @@ import com.alibaba.nacos.common.utils.ThreadUtils;
 import com.alibaba.nacos.common.utils.VersionUtils;
 
 /**
+ * <uL>实用程序和常量</uL>
  * Util and constants.
  *
  * @author xuanyin.zy

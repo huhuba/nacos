@@ -17,6 +17,7 @@
 package com.alibaba.nacos.client.naming.remote.gprc.redo.data;
 
 /**
+ * <ul>为订阅者重做数据</ul>
  * Redo data for subscribers.
  *
  * @author xiweng.yy

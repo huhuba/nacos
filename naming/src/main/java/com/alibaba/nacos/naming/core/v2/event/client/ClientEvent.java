@@ -38,7 +38,7 @@ public class ClientEvent extends Event {
         return client;
     }
     
-    /**
+    /**<ul>新增或者删除</ul>
      * Client changed event. Happened when {@code Client} add or remove service.
      */
     public static class ClientChangedEvent extends ClientEvent {

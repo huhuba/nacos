@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.Callable;
 
-/**
+/**<ul>缓存的简单实现</ul>
  * Simple implementation of {@code Cache}.
  * @author zzq
  * @date 2021/7/30

@@ -42,6 +42,7 @@ import java.util.Arrays;
 import java.util.Properties;
 
 /**
+ * <ul>配置实现</ul>
  * Config Impl.
  *
  * @author Nacos

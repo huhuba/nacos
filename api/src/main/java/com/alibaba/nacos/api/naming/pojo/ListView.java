@@ -18,7 +18,7 @@ package com.alibaba.nacos.api.naming.pojo;
 
 import java.util.List;
 
-/**
+/**<ul>列表显示</ul>
  * ListView.
  *
  * @author nkorange

@@ -29,6 +29,7 @@ import java.io.File;
 import java.io.IOException;
 
 /**
+ * <ul>加密数据密钥（EncryptedDataKey）本地快照，容灾目录相关</ul>
  * Encrypted data key (EncryptedDataKey) local snapshot, disaster recovery directory related.
  *
  * @author luyanbo(RobberPhex)

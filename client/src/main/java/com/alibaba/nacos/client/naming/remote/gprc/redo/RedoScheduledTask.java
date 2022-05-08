@@ -24,7 +24,7 @@ import com.alibaba.nacos.client.naming.remote.gprc.redo.data.SubscriberRedoData;
 import com.alibaba.nacos.client.utils.LogUtils;
 import com.alibaba.nacos.common.task.AbstractExecuteTask;
 
-/**
+/**<ul>重做任务</ul>
  * Redo task.
  *
  * @author xiweng.yy

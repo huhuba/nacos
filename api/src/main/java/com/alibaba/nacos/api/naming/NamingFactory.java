@@ -37,6 +37,7 @@ public class NamingFactory {
      */
     public static NamingService createNamingService(String serverList) throws NacosException {
         try {
+            //反射实例化服务：NacosNamingService
             Class<?> driverImplClass = Class.forName("com.alibaba.nacos.client.naming.NacosNamingService");
             Constructor constructor = driverImplClass.getConstructor(String.class);
             return (NamingService) constructor.newInstance(serverList);

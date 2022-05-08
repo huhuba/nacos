@@ -20,7 +20,7 @@ import com.alibaba.nacos.api.exception.NacosException;
 import com.alibaba.nacos.api.remote.request.Request;
 import com.alibaba.nacos.api.remote.response.Response;
 
-/**
+/**<ul>连接接口，定义基本操作</ul>
  * connection interface,define basic operation.
  *
  * @author liuzunfei

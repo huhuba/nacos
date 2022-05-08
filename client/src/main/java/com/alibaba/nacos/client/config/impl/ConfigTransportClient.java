@@ -34,6 +34,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 /**
+ * <ul>配置传输客户端，包括配置模块的基本操作。</ul>
  * config transport client,include basic operations of config module.
  *
  * @author liuzunfei

@@ -42,7 +42,7 @@ public class DistroSyncChangeTask extends AbstractDistroExecuteTask {
     }
     
     @Override
-    protected boolean doExecute() {
+    protected boolean doExecute() {//无回调
         String type = getDistroKey().getResourceType();
         DistroData distroData = getDistroData(type);
         if (null == distroData) {
@@ -54,7 +54,7 @@ public class DistroSyncChangeTask extends AbstractDistroExecuteTask {
     }
     
     @Override
-    protected void doExecuteWithCallback(DistroCallback callback) {
+    protected void doExecuteWithCallback(DistroCallback callback) {//with  callback:有回调
         String type = getDistroKey().getResourceType();
         DistroData distroData = getDistroData(type);
         if (null == distroData) {
@@ -69,7 +69,12 @@ public class DistroSyncChangeTask extends AbstractDistroExecuteTask {
     public String toString() {
         return "DistroSyncChangeTask for " + getDistroKey().toString();
     }
-    
+
+    /**
+     *
+     * @param type resourceType
+     * @return  返回 DistroData
+     */
     private DistroData getDistroData(String type) {
         DistroData result = getDistroComponentHolder().findDataStorage(type).getDistroData(getDistroKey());
         if (null != result) {

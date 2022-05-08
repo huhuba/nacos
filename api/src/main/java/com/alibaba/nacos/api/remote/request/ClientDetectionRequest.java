@@ -18,7 +18,7 @@ package com.alibaba.nacos.api.remote.request;
 
 import static com.alibaba.nacos.api.common.Constants.Remote.INTERNAL_MODULE;
 
-/**
+/**<ul>来自服务器的客户端主动检测请求</ul>
  * client active detection request from server.
  *
  * @author liuzunfei

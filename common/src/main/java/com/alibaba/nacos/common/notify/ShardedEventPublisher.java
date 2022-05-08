@@ -19,6 +19,7 @@ package com.alibaba.nacos.common.notify;
 import com.alibaba.nacos.common.notify.listener.Subscriber;
 
 /**
+ * <ul>共享事件发布者。</ul>
  * Sharded event publisher.
  *
  * <p>To support one publisher for different events.

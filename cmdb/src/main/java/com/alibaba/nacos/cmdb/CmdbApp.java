@@ -20,6 +20,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
+ * <ul>CMDB 启动器</ul>
  * CMDB starter.
  *
  * @author nkorange

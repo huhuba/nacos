@@ -19,6 +19,7 @@ package com.alibaba.nacos.api.remote.response;
 import com.alibaba.nacos.api.remote.Payload;
 
 /**
+ * <UL>通过 rpc 通道抽象响应模型</UL>
  * abstract response model via rpc channel.
  *
  * @author liuzunfei

@@ -69,13 +69,13 @@ public class DistroClientTransportAgent implements DistroTransportAgent {
             return true;
         }
         DistroDataRequest request = new DistroDataRequest(data, data.getType());
-        Member member = memberManager.find(targetServer);
+        Member member = memberManager.find(targetServer);//服务管理器通过服务名称找到服务
         if (checkTargetServerStatusUnhealthy(member)) {
             Loggers.DISTRO.warn("[DISTRO] Cancel distro sync caused by target server {} unhealthy", targetServer);
             return false;
         }
         try {
-            Response response = clusterRpcClientProxy.sendRequest(member, request);
+            Response response = clusterRpcClientProxy.sendRequest(member, request);//将请求发送给服务，并拿到返回。
             return checkResponse(response);
         } catch (NacosException e) {
             Loggers.DISTRO.error("[DISTRO-FAILED] Sync distro data failed! ", e);

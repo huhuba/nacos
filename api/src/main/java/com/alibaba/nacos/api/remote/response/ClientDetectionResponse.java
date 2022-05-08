@@ -16,7 +16,7 @@
 
 package com.alibaba.nacos.api.remote.response;
 
-/**
+/**<ul>客户端主动检测检查的响应。</ul>
  * response of client active detection check.
  *
  * @author liuzunfei

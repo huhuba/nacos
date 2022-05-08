@@ -21,6 +21,7 @@ import com.alibaba.nacos.api.common.Constants;
 import static com.alibaba.nacos.api.common.Constants.WORD_SEPARATOR;
 
 /**
+ * <ul>内容实用程序。</ul>
  * Content Util.
  *
  * @author Nacos

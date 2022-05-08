@@ -37,6 +37,7 @@ import java.util.Map;
 import java.util.Properties;
 
 /**
+ * <ul>服务器代理</ul>
  * Server Agent.
  *
  * @author water.lyl

@@ -36,6 +36,7 @@ import java.util.Map;
 import java.util.Properties;
 
 /**
+ * <ul>阿里云内存客户端鉴权服务实现。</ul>
  * Client Auth service implementation for aliyun RAM.
  *
  * @author xiweng.yy

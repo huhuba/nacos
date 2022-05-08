@@ -32,7 +32,7 @@ import java.util.Properties;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-/**
+/**<ul>证书/凭据观察者</ul>
  * Credential Watcher.
  *
  * @author Nacos

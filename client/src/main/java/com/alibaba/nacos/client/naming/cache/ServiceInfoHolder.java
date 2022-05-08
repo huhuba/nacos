@@ -44,6 +44,7 @@ import java.util.concurrent.ConcurrentMap;
 import static com.alibaba.nacos.client.utils.LogUtils.NAMING_LOGGER;
 
 /**
+ * <ul>命名客户服务信息持有者。</ul>
  * Naming client service information holder.
  *
  * @author xiweng.yy

@@ -37,6 +37,7 @@ import org.slf4j.Logger;
 import java.util.Map;
 
 /**
+ * <ul>命名模块的资源注入器。</ul>
  * Resource Injector for naming module.
  *
  * @author xiweng.yy

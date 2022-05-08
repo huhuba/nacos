@@ -21,6 +21,7 @@ import com.alibaba.nacos.common.cache.Cache;
 import java.util.concurrent.Callable;
 
 /**
+ * <ul>线程安全缓存的包装器</ul>
  * A wrapper that thread-safe cache.
  * @author zzq
  * @date 2021/7/30

@@ -37,6 +37,7 @@ import java.util.concurrent.ThreadFactory;
 import static com.alibaba.nacos.client.utils.LogUtils.NAMING_LOGGER;
 
 /**
+ * <ul>推接收器</ul>
  * Push receiver.
  *
  * @author xuanyin

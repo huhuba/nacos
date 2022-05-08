@@ -20,6 +20,7 @@ import com.alibaba.nacos.api.config.ConfigChangeEvent;
 import com.alibaba.nacos.api.config.listener.AbstractListener;
 
 /**
+ * <ul>抽象配置更改监听器</ul>
  * AbstractConfigChangeListener.
  *
  * @author rushsky518

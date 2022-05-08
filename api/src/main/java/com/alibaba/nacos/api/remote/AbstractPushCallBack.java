@@ -16,7 +16,7 @@
 
 package com.alibaba.nacos.api.remote;
 
-/**
+/**<UL>推送服务的抽象回调。</UL>
  * abstract callback of push service.
  *
  * @author liuzunfei

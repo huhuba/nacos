@@ -19,7 +19,7 @@ package com.alibaba.nacos.api.remote.response;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
+/**<UL>服务器加载器信息响应</UL>
  * server loader info response.
  *
  * @author liuzunfei

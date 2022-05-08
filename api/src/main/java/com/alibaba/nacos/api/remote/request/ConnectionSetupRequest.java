@@ -21,7 +21,7 @@ import com.alibaba.nacos.api.ability.ClientAbilities;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
+/**<ul>建立连接请求。</ul>
  * request to setup a connection.
  *
  * @author liuzunfei

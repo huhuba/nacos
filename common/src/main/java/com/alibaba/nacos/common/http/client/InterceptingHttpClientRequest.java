@@ -25,6 +25,7 @@ import java.net.URI;
 import java.util.Iterator;
 
 /**
+ * <ul>包装http客户端请求并进行相应的拦截。</ul>
  * Wrap http client request and perform corresponding interception.
  *
  * @author mai.jh

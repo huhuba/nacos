@@ -22,7 +22,7 @@ import com.alibaba.nacos.plugin.auth.api.Permission;
 import com.alibaba.nacos.plugin.auth.api.Resource;
 import com.alibaba.nacos.plugin.auth.exception.AccessException;
 
-/**
+/**<ul>协议认证服务</ul>
  * Protocol auth service.
  *
  * @author xiweng.yy

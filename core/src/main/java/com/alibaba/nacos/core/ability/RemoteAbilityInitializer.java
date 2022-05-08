@@ -19,6 +19,7 @@ package com.alibaba.nacos.core.ability;
 import com.alibaba.nacos.api.ability.ServerAbilities;
 
 /**
+ * <ul>远程服务器能力初始化程序。</ul>
  * Server ability initializer for remote.
  *
  * @author xiweng.yy

@@ -27,6 +27,7 @@ import com.alibaba.nacos.common.utils.StringUtils;
 import static com.alibaba.nacos.client.utils.LogUtils.NAMING_LOGGER;
 
 /**
+ * <ul>命名模块的资源注入器。</ul>
  * Resource Injector for naming module.
  *
  * @author xiweng.yy
