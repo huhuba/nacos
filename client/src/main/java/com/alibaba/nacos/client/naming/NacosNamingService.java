@@ -88,9 +88,9 @@ public class NacosNamingService implements NamingService {
         InitUtils.initWebRootContext(properties);
         initLogName(properties);
         
-        this.changeNotifier = new InstancesChangeNotifier();
-        NotifyCenter.registerToPublisher(InstancesChangeEvent.class, 16384);
-        NotifyCenter.registerSubscriber(changeNotifier);
+        this.changeNotifier = new InstancesChangeNotifier();//实例变更时间通知器
+        NotifyCenter.registerToPublisher(InstancesChangeEvent.class, 16384);//通知中心绑定实例变更事件
+        NotifyCenter.registerSubscriber(changeNotifier);//通知中心绑定变更通知者
         this.serviceInfoHolder = new ServiceInfoHolder(namespace, properties);
         //初始化 clientProxy,NamingClientProxyDelegate类
         this.clientProxy = new NamingClientProxyDelegate(this.namespace, serviceInfoHolder, properties, changeNotifier);
@@ -224,12 +224,15 @@ public class NacosNamingService implements NamingService {
             boolean subscribe) throws NacosException {
         ServiceInfo serviceInfo;
         String clusterString = StringUtils.join(clusters, ",");
-        if (subscribe) {
+        if (subscribe) {//如果订阅过，执行以下代码块
+            //获得本地的服务器信息
             serviceInfo = serviceInfoHolder.getServiceInfo(serviceName, groupName, clusterString);
+            //如果服务信息为空，且判断服务没有订阅过
             if (null == serviceInfo || !clientProxy.isSubscribed(serviceName, groupName, clusterString)) {
+                //进行服务订阅
                 serviceInfo = clientProxy.subscribe(serviceName, groupName, clusterString);
             }
-        } else {
+        } else {//如果没有订阅，则从服务器查询实例信息：serviceInfo
             serviceInfo = clientProxy.queryInstancesOfService(serviceName, groupName, clusterString, 0, false);
         }
         List<Instance> list;

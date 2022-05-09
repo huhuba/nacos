@@ -23,17 +23,30 @@ package com.alibaba.nacos.api.naming.remote;
  * @author xiweng.yy
  */
 public class NamingRemoteConstants {
-    
+    /**
+     * 注册实例
+     */
     public static final String REGISTER_INSTANCE = "registerInstance";
-    
+    /**
+     * 注销实例
+     */
     public static final String DE_REGISTER_INSTANCE = "deregisterInstance";
-    
+    /**
+     * 查询服务信息
+     */
     public static final String QUERY_SERVICE = "queryService";
-    
+    /**
+     * 订阅服务信息
+     */
     public static final String SUBSCRIBE_SERVICE = "subscribeService";
-    
+
+    /**
+     * 通知订阅者
+     */
     public static final String NOTIFY_SUBSCRIBER = "notifySubscriber";
-    
+    /**
+     * 查询服务器列表
+     */
     public static final String LIST_SERVICE = "listService";
     
     public static final String FORWARD_INSTANCE = "forwardInstance";

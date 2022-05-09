@@ -32,6 +32,7 @@ import com.alibaba.nacos.plugin.auth.constant.ActionTypes;
 import org.springframework.stereotype.Component;
 
 /**
+ * <ul>查询服务请求处理器</ul>
  * Nacos query instances request handler.
  *
  * @author xiweng.yy

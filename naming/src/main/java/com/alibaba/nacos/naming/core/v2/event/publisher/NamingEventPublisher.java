@@ -60,7 +60,7 @@ public class NamingEventPublisher extends Thread implements ShardedEventPublishe
         this.queue = new ArrayBlockingQueue<>(bufferSize);
         this.publisherName = type.getSimpleName();
         super.setName(THREAD_NAME + this.publisherName);
-        super.setDaemon(true);
+        super.setDaemon(true);//设置为守护线程
         super.start();
         initialized = true;
     }
@@ -97,6 +97,7 @@ public class NamingEventPublisher extends Thread implements ShardedEventPublishe
     @Override
     public boolean publish(Event event) {
         checkIsStart();
+        //将该事件放入队列中
         boolean success = this.queue.offer(event);
         if (!success) {
             Loggers.EVT_LOG.warn("Unable to plug in due to interruption, synchronize sending time, event : {}", event);
@@ -113,11 +114,11 @@ public class NamingEventPublisher extends Thread implements ShardedEventPublishe
         }
         final Runnable job = () -> subscriber.onEvent(event);
         final Executor executor = subscriber.executor();
-        if (executor != null) {
-            executor.execute(job);
+        if (executor != null) {//执行器不为空
+            executor.execute(job);//执行任务，订阅者接收的该事件
         } else {
             try {
-                job.run();
+                job.run();//执行器为空，
             } catch (Throwable e) {
                 Loggers.EVT_LOG.error("Event callback exception: ", e);
             }
@@ -175,6 +176,7 @@ public class NamingEventPublisher extends Thread implements ShardedEventPublishe
             return;
         }
         for (Subscriber subscriber : subscribers) {
+            //遍历通知所有的订阅者该事件
             notifySubscriber(subscriber, event);
         }
     }

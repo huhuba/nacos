@@ -27,6 +27,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
+ * <ul>GRPC请求过滤器</ul>
  * Grpc request filter.
  *
  * @author majorhe

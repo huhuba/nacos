@@ -62,11 +62,11 @@ public class DefaultPublisher extends Thread implements EventPublisher {
     
     @Override
     public void init(Class<? extends Event> type, int bufferSize) {
-        setDaemon(true);
+        setDaemon(true);//设置为守护线程
         setName("nacos.publisher-" + type.getName());
         this.eventType = type;
         this.queueMaxSize = bufferSize;
-        this.queue = new ArrayBlockingQueue<>(bufferSize);
+        this.queue = new ArrayBlockingQueue<>(bufferSize);//初始化阻塞队列
         start();
     }
     
@@ -100,12 +100,14 @@ public class DefaultPublisher extends Thread implements EventPublisher {
         try {
             
             // This variable is defined to resolve the problem which message overstock in the queue.
+            //最大延时60S,定义此变量是为了解决消息积压问题,
             int waitTimes = 60;
             // To ensure that messages are not lost, enable EventHandler when
             // waiting for the first Subscriber to register
+            //为保证消息不丢失，等待第一个订阅者注册时开启EventHandler
             for (; ; ) {
-                if (shutdown || hasSubscriber() || waitTimes <= 0) {
-                    break;
+                if (shutdown || hasSubscriber() || waitTimes <= 0) {//线程结束条件
+                    break;//跳出当前for循环
                 }
                 ThreadUtils.sleep(1000L);
                 waitTimes--;
@@ -115,8 +117,9 @@ public class DefaultPublisher extends Thread implements EventPublisher {
                 if (shutdown) {
                     break;
                 }
-                final Event event = queue.take();
-                receiveEvent(event);
+                // 死循环不断的从队列中取出Event，并通知订阅者Subscriber执行Event
+                final Event event = queue.take();//从队列中拿出事件
+                receiveEvent(event);//接收事件，并通知订阅者处理事件
                 UPDATER.compareAndSet(this, lastEventSequence, Math.max(lastEventSequence, event.sequence()));
             }
         } catch (Throwable ex) {
@@ -166,7 +169,7 @@ public class DefaultPublisher extends Thread implements EventPublisher {
         return initialized;
     }
     
-    /**
+    /**<ul>接收并 通知订阅者 处理事件</ul>
      * Receive and notifySubscriber to process the event.
      *
      * @param event {@link Event}.
@@ -174,7 +177,7 @@ public class DefaultPublisher extends Thread implements EventPublisher {
     void receiveEvent(Event event) {
         final long currentEventSequence = event.sequence();
         
-        if (!hasSubscriber()) {
+        if (!hasSubscriber()) {//没有订阅者
             LOGGER.warn("[NotifyCenter] the {} is lost, because there is no subscriber.", event);
             return;
         }
@@ -190,7 +193,7 @@ public class DefaultPublisher extends Thread implements EventPublisher {
             
             // Because unifying smartSubscriber and subscriber, so here need to think of compatibility.
             // Remove original judge part of codes.
-            notifySubscriber(subscriber, event);
+            notifySubscriber(subscriber, event);//通知订阅者
         }
     }
     
@@ -201,7 +204,8 @@ public class DefaultPublisher extends Thread implements EventPublisher {
         
         final Runnable job = () -> subscriber.onEvent(event);
         final Executor executor = subscriber.executor();
-        
+
+        //通知订阅者事件
         if (executor != null) {
             executor.execute(job);
         } else {

@@ -141,7 +141,7 @@ public class NamingClientProxyDelegate implements NamingClientProxy {
         NAMING_LOGGER.info("[SUBSCRIBE-SERVICE] service:{}, group:{}, clusters:{} ", serviceName, groupName, clusters);
         String serviceNameWithGroup = NamingUtils.getGroupedName(serviceName, groupName);
         String serviceKey = ServiceInfo.getKey(serviceNameWithGroup, clusters);
-        //定时任务：schedule,
+        //定时任务：schedule，从服务器查询新的服务信息，判断是否需要更新，如果更新则更新并发布实例更新事件（InstancesChangeEvent）
         serviceInfoUpdateService.scheduleUpdateIfAbsent(serviceName, groupName, clusters);
         //获取缓存中的service info
         ServiceInfo result = serviceInfoHolder.getServiceInfoMap().get(serviceKey);

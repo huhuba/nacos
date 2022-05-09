@@ -22,6 +22,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
+ * <ul>命名有效负荷提供包</ul>
  * naming package provider.
  *
  * @author hujun

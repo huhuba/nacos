@@ -75,7 +75,7 @@ public class NotifyCenter {
         // The size of the public publisher's message staging queue buffer
         String shareBufferSizeProperty = "nacos.core.notify.share-buffer-size";
         shareBufferSize = Integer.getInteger(shareBufferSizeProperty, 1024);
-        
+        //加载事件发布器
         final Collection<EventPublisher> publishers = NacosServiceLoader.load(EventPublisher.class);
         Iterator<EventPublisher> iterator = publishers.iterator();
         
@@ -317,6 +317,7 @@ public class NotifyCenter {
     }
     
     /**
+     * <ul>使用默认工厂注册发布者</ul>
      * Register publisher with default factory.
      *
      * @param eventType    class Instances type of the event type.
@@ -326,7 +327,7 @@ public class NotifyCenter {
         return registerToPublisher(eventType, DEFAULT_PUBLISHER_FACTORY, queueMaxSize);
     }
     
-    /**
+    /**<ul>用指定工厂注册发布者</ul>
      * Register publisher with specified factory.
      *
      * @param eventType    class Instances type of the event type.

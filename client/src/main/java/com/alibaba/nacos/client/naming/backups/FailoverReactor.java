@@ -86,19 +86,21 @@ public class FailoverReactor implements Closeable {
                 return thread;
             }
         });
-        this.init();
+        this.init();//故障转移反应者的核心功能，初始化
     }
     
     /**
      * Init.
      */
     public void init() {
-        
+        //延时0S开始执行，周期为5秒
         executorService.scheduleWithFixedDelay(new SwitchRefresher(), 0L, 5000L, TimeUnit.MILLISECONDS);
-        
+
+        //延时30分钟开始执行，周期一天
         executorService.scheduleWithFixedDelay(new DiskFileWriter(), 30, DAY_PERIOD_MINUTES, TimeUnit.MINUTES);
         
         // backup file on startup if failover directory is empty.
+        //如果故障转移目录为空，则在启动时备份文件。
         executorService.schedule(new Runnable() {
             @Override
             public void run() {
@@ -111,7 +113,7 @@ public class FailoverReactor implements Closeable {
                     
                     File[] files = cacheDir.listFiles();
                     if (files == null || files.length <= 0) {
-                        new DiskFileWriter().run();
+                        new DiskFileWriter().run();//将serviceInfo文件，存入磁盘
                     }
                 } catch (Throwable e) {
                     NAMING_LOGGER.error("[NA] failed to backup file on startup.", e);
@@ -167,11 +169,12 @@ public class FailoverReactor implements Closeable {
                         String[] lines = failover.split(DiskCache.getLineSeparator());
                         
                         for (String line : lines) {
+                            //故障转移开关标志
                             String line1 = line.trim();
                             if (IS_FAILOVER_MODE.equals(line1)) {
                                 switchParams.put(FAILOVER_MODE_PARAM, Boolean.TRUE.toString());
                                 NAMING_LOGGER.info("failover-mode is on");
-                                new FailoverFileReader().run();
+                                new FailoverFileReader().run();//将故障转移目录下的文件，读入并转化成serviceInfo信息，放入serciceMap中
                             } else if (NO_FAILOVER_MODE.equals(line1)) {
                                 switchParams.put(FAILOVER_MODE_PARAM, Boolean.FALSE.toString());
                                 NAMING_LOGGER.info("failover-mode is off");
@@ -187,7 +190,10 @@ public class FailoverReactor implements Closeable {
             }
         }
     }
-    
+
+    /**
+     * 读入故障转移目录下的文件，并转成对应的serviceInfo信息，存放入serviceMap中
+     */
     class FailoverFileReader implements Runnable {
         
         @Override
@@ -271,7 +277,7 @@ public class FailoverReactor implements Closeable {
                         .equals(serviceInfo.getName(), UtilAndComs.ALL_HOSTS)) {
                     continue;
                 }
-                
+                //将serviceInfo信息写入文件，保存到故障转移目录
                 DiskCache.write(serviceInfo, failoverDir);
             }
         }

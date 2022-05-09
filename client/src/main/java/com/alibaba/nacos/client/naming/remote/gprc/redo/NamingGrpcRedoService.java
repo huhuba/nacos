@@ -104,7 +104,7 @@ public class NamingGrpcRedoService implements ConnectionEventListener {
         }
     }
     
-    /**
+    /**<uL>实例注册成功，注册状态为真。</uL>
      * Instance register successfully, mark registered status as {@code true}.
      *
      * @param serviceName service name
@@ -115,6 +115,7 @@ public class NamingGrpcRedoService implements ConnectionEventListener {
         synchronized (registeredInstances) {
             InstanceRedoData redoData = registeredInstances.get(key);
             if (null != redoData) {
+                //设置已经注册标识
                 redoData.setRegistered(true);
             }
         }

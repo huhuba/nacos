@@ -87,20 +87,28 @@ public class ServiceInfoUpdateService implements Closeable {
      * @param clusters    clusters
      */
     public void scheduleUpdateIfAbsent(String serviceName, String groupName, String clusters) {
+        //serviceKey:clusterName@@groupName@@serviceName
         String serviceKey = ServiceInfo.getKey(NamingUtils.getGroupedName(serviceName, groupName), clusters);
+        //futureMap有serviceKey对应的值，则结束该代码块儿
         if (futureMap.get(serviceKey) != null) {
             return;
         }
         synchronized (futureMap) {
+            //双重检查，避免在等待锁的过程中，被放入
             if (futureMap.get(serviceKey) != null) {
                 return;
             }
-            
+            //放入一个新的任务
             ScheduledFuture<?> future = addTask(new UpdateTask(serviceName, groupName, clusters));
             futureMap.put(serviceKey, future);
         }
     }
-    
+
+    /**
+     * 添加一个新的定时任务
+     * @param task  要添加的新的任务
+     * @return
+     */
     private synchronized ScheduledFuture<?> addTask(UpdateTask task) {
         return executor.schedule(task, DEFAULT_DELAY, TimeUnit.MILLISECONDS);
     }
@@ -167,6 +175,7 @@ public class ServiceInfoUpdateService implements Closeable {
             long delayTime = DEFAULT_DELAY;
             
             try {
+                //没有订阅过，则取消该任务的执行
                 if (!changeNotifier.isSubscribed(groupName, serviceName, clusters) && !futureMap.containsKey(
                         serviceKey)) {
                     NAMING_LOGGER.info("update task is stopped, service:{}, clusters:{}", groupedServiceName, clusters);
@@ -176,22 +185,26 @@ public class ServiceInfoUpdateService implements Closeable {
                 
                 ServiceInfo serviceObj = serviceInfoHolder.getServiceInfoMap().get(serviceKey);
                 if (serviceObj == null) {
+                    //如果serviceObj  为空，则重新查询，并更新到 serviceInfoHolder中
                     serviceObj = namingClientProxy.queryInstancesOfService(serviceName, groupName, clusters, 0, false);
                     serviceInfoHolder.processServiceInfo(serviceObj);
                     lastRefTime = serviceObj.getLastRefTime();
                     return;
                 }
-                
+                // 过期服务，服务的最新更新时间小于等于缓存刷新（最后一次拉取数据的时间）时间，从注册中心重新查询
                 if (serviceObj.getLastRefTime() <= lastRefTime) {
+                    //没有更新，则查询并更新
                     serviceObj = namingClientProxy.queryInstancesOfService(serviceName, groupName, clusters, 0, false);
                     serviceInfoHolder.processServiceInfo(serviceObj);
                 }
+                //变更最后引用时间
                 lastRefTime = serviceObj.getLastRefTime();
                 if (CollectionUtils.isEmpty(serviceObj.getHosts())) {
                     incFailCount();
                     return;
                 }
                 // TODO multiple time can be configured.
+                //cacheMillis:1000L,1000L*6,6秒
                 delayTime = serviceObj.getCacheMillis() * DEFAULT_UPDATE_CACHE_TIME_MULTIPLE;
                 resetFailCount();
             } catch (Throwable e) {
@@ -199,12 +212,18 @@ public class ServiceInfoUpdateService implements Closeable {
                 NAMING_LOGGER.warn("[NA] failed to update serviceName: {}", groupedServiceName, e);
             } finally {
                 if (!isCancel) {
+                    //最后设置任务下次开始执行的时间。最多延迟6W毫秒/60秒/1分钟
+                    // 下次调度刷新时间，下次执行的时间与failCount有关，failCount=0，则下次调度时间为6秒，最长为1分钟
+                    // 即当无异常情况下缓存实例的刷新时间是6秒
                     executor.schedule(this, Math.min(delayTime << failCount, DEFAULT_DELAY * 60),
                             TimeUnit.MILLISECONDS);
                 }
             }
         }
-        
+
+        /**
+         * 失败计数递增
+         */
         private void incFailCount() {
             int limit = 6;
             if (failCount == limit) {
@@ -212,7 +231,10 @@ public class ServiceInfoUpdateService implements Closeable {
             }
             failCount++;
         }
-        
+
+        /**
+         * 重置失败计数为0；
+         */
         private void resetFailCount() {
             failCount = 0;
         }

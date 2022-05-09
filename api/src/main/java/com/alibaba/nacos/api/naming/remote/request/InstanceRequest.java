@@ -19,6 +19,7 @@ package com.alibaba.nacos.api.naming.remote.request;
 import com.alibaba.nacos.api.naming.pojo.Instance;
 
 /**
+ * <ul>实例相关的请求</ul>
  * Nacos instances request.
  *
  * @author xiweng.yy

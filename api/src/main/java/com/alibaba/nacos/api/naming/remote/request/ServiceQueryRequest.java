@@ -17,6 +17,7 @@
 package com.alibaba.nacos.api.naming.remote.request;
 
 /**
+ * <ul>命名查询请求</ul>
  * Nacos naming query request.
  *
  * @author xiweng.yy

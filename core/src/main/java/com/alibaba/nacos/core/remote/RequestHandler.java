@@ -24,6 +24,7 @@ import com.alibaba.nacos.core.utils.Loggers;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
+ * <ul>基础请求处理程序</ul>
  * Nacos based request handler.
  *
  * @author liuzunfei

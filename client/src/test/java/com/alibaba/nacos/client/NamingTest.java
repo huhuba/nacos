@@ -34,12 +34,14 @@ public class NamingTest {
     
     @Test
     public void testServiceList() throws Exception {
-        
+
+        //服务器的信息设置
         Properties properties = new Properties();
         properties.put(PropertyKeyConst.SERVER_ADDR, "127.0.0.1:8848");
         properties.put(PropertyKeyConst.USERNAME, "nacos");
         properties.put(PropertyKeyConst.PASSWORD, "nacos");
-        
+
+        //客户端/实例  自身的信息
         Instance instance = new Instance();
         instance.setIp("1.1.1.1");
         instance.setPort(800);
@@ -48,12 +50,14 @@ public class NamingTest {
         map.put("netType", "external");
         map.put("version", "2.0");
         instance.setMetadata(map);
-    
+
+        //namingService对象的生成
         NamingService namingService = NacosFactory.createNamingService(properties);
+        //namingService调用注册实例方法，registerInstance
         namingService.registerInstance("nacos.test.1", instance);
         
-      //  ThreadUtils.sleep(5000L);
-        
+        ThreadUtils.sleep(5000L);
+        //namingService 调用获取所有实例的方法
         List<Instance> list = namingService.getAllInstances("nacos.test.1");
         
         System.out.println(list);

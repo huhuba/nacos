@@ -44,12 +44,13 @@ public class InstancesChangeNotifier extends Subscriber<InstancesChangeEvent> {
     private final Object lock = new Object();
     
     /**
+     * <ul>注册监听器</ul>
      * register listener.
      *
      * @param groupName   group name
      * @param serviceName serviceName
      * @param clusters    clusters, concat by ','. such as 'xxx,yyy'
-     * @param listener    custom listener
+     * @param listener    custom listener-要注册的监听器
      */
     public void registerListener(String groupName, String serviceName, String clusters, EventListener listener) {
         String key = ServiceInfo.getKey(NamingUtils.getGroupedName(serviceName, groupName), clusters);

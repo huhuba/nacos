@@ -77,7 +77,12 @@ public class ServiceInfoHolder implements Closeable {
         this.failoverReactor = new FailoverReactor(this, cacheDir);
         this.pushEmptyProtection = isPushEmptyProtect(properties);
     }
-    
+
+    /**
+     * 初始化缓存目录
+     * @param namespace
+     * @param properties
+     */
     private void initCacheDir(String namespace, Properties properties) {
         String jmSnapshotPath = System.getProperty(JM_SNAPSHOT_PATH_PROPERTY);
     
@@ -94,7 +99,12 @@ public class ServiceInfoHolder implements Closeable {
                     + File.separator + FILE_PATH_NAMING + File.separator + namespace;
         }
     }
-    
+
+    /**
+     * 开始的时候，是否加载缓存
+     * @param properties
+     * @return
+     */
     private boolean isLoadCacheAtStart(Properties properties) {
         boolean loadCacheAtStart = false;
         if (properties != null && StringUtils
@@ -121,10 +131,13 @@ public class ServiceInfoHolder implements Closeable {
     
     public ServiceInfo getServiceInfo(final String serviceName, final String groupName, final String clusters) {
         NAMING_LOGGER.debug("failover-mode: {}", failoverReactor.isFailoverSwitch());
+        //groupName@@serviceName
         String groupedServiceName = NamingUtils.getGroupedName(serviceName, groupName);
+        //获得组装成的Key,clustersName@@groupName@@serviceName
         String key = ServiceInfo.getKey(groupedServiceName, clusters);
-        if (failoverReactor.isFailoverSwitch()) {
-            return failoverReactor.getService(key);
+        //故障转移反应堆
+        if (failoverReactor.isFailoverSwitch()) {//如果开启故障转移
+            return failoverReactor.getService(key);//从故障转移反应堆中，获取  serviceInfo
         }
         return serviceInfoMap.get(key);
     }
@@ -142,6 +155,10 @@ public class ServiceInfoHolder implements Closeable {
     }
     
     /**
+     * <ul>处理服务信息，如果有更新的话，则更新服务信息，并发布InstancesChangedEvent:实例变更事件到所有的订阅者
+     * <li>客户端发送事件到服务器，服务器通知所有的其他订阅的客户端？</li>
+     * <li>还是客户端直接发通知到其他的客户端？</li>
+     * </ul>
      * Process service info.
      *
      * @param serviceInfo new service info
@@ -158,6 +175,7 @@ public class ServiceInfoHolder implements Closeable {
             return oldService;
         }
         serviceInfoMap.put(serviceInfo.getKey(), serviceInfo);
+        //判断服务信息是否变更
         boolean changed = isChangedServiceInfo(oldService, serviceInfo);
         if (StringUtils.isBlank(serviceInfo.getJsonFromServer())) {
             serviceInfo.setJsonFromServer(JacksonUtils.toJson(serviceInfo));
@@ -166,8 +184,10 @@ public class ServiceInfoHolder implements Closeable {
         if (changed) {
             NAMING_LOGGER.info("current ips:({}) service: {} -> {}", serviceInfo.ipCount(), serviceInfo.getKey(),
                     JacksonUtils.toJson(serviceInfo.getHosts()));
+            //如果变更了，发布实例变更事件
             NotifyCenter.publishEvent(new InstancesChangeEvent(serviceInfo.getName(), serviceInfo.getGroupName(),
                     serviceInfo.getClusters(), serviceInfo.getHosts()));
+            //将服务信息，写入磁盘缓存。
             DiskCache.write(serviceInfo, cacheDir);
         }
         return serviceInfo;

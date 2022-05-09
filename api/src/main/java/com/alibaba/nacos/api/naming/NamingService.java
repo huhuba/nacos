@@ -79,7 +79,7 @@ public interface NamingService {
     
     /**
      * register a instance to service with specified instance properties.
-     *
+     *<uL>该serviceName,是实例的名称</uL>
      * @param serviceName name of service
      * @param instance    instance to register
      * @throws NacosException nacos exception

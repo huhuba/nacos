@@ -22,6 +22,7 @@ import com.alibaba.nacos.api.remote.request.ServerRequest;
 import static com.alibaba.nacos.api.common.Constants.Naming.NAMING_MODULE;
 
 /**
+ * <ul>通知订阅者的请求</ul>
  * Notify subscriber request.
  *
  * @author xiweng.yy

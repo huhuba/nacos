@@ -55,6 +55,7 @@ public class DistroVerifyTimedTask implements Runnable {
                 Loggers.DISTRO.debug("server list is: {}", targetServer);
             }
             for (String each : distroComponentHolder.getDataStorageTypes()) {
+                // 遍历向这些节点发送 Client.isNative=true的DistroData，type = VERIFY
                 verifyForDataStorage(each, targetServer);
             }
         } catch (Exception e) {

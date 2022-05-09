@@ -27,6 +27,7 @@ import com.alibaba.nacos.core.utils.Loggers;
 import java.util.List;
 
 /**
+ * <ul>执行验证任务</ul>
  * Execute distro verify task.
  *
  * @author xiweng.yy
